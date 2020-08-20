@@ -188,6 +188,7 @@ function App() {
             <div>
               <label>CVV</label>
               <input
+                maxLength="3"
                 className={`cvv ${focus.cvv ? "rotate" : ""}`}
                 type="text"
                 onChange={(e) => setForm({ ...form, cvv: e.target.value })}
@@ -229,7 +230,7 @@ function App() {
                 <h2 className={`${focus.number ? "activeBorder" : null}`}>
                   {form.number
                     ? addGaps(form.number, 4)
-                    : "4916  ****  ****  5709"}
+                    : "####  ####  ####  ####"}
                 </h2>
               </div>
               <div className="three">
