@@ -7,11 +7,13 @@ import Flip from "react-reveal/Flip";
 import MaskInput from "react-maskinput";
 
 function App() {
+  // state for momths and years---
   const [state, setState] = useState({
     months: [],
     years: [],
   });
 
+  // state to store card values---
   const [form, setForm] = useState({
     number: "#### #### #### ####",
     name: "",
@@ -21,6 +23,7 @@ function App() {
     cvv: "",
   });
 
+  // state for hovering effect on card---
   const [focus, setFocus] = useState({
     name: false,
     number: false,
@@ -28,6 +31,7 @@ function App() {
     cvv: false,
   });
 
+  //input mask
   const [mask] = React.useState("0000 0000 0000 0000");
 
   //on Component Loads---
@@ -84,9 +88,11 @@ function App() {
   return (
     <div className="App">
       <div className="card">
+        {/* credit card form */}
         <form>
           <label>Card Number</label>
 
+          {/* Mask Input Component */}
           <MaskInput
             onChange={(e) => {
               detectCardType(e.target.value);
@@ -215,19 +221,22 @@ function App() {
         </form>
 
         {!focus.cvv ? (
+          //Card front-side
           <div className="credit-card">
             <div className="">
               <div className="one">
                 <img src={Chip} alt="chip" />
                 <div className="cType">
+                  {/* images for card type */}
                   <img alt="card" src={require(`./assets/${form.card}.jpg`)} />
-                  {/* <h3>{form.card ? form.card : "Visa"}</h3> */}
                 </div>
               </div>
               <div className="two">
+                {/* adding class name for border effect */}
                 <h2 className={`${focus.number ? "activeBorder" : null}`}>
                   {form.number
-                    ? `${form.number.split(" ")[0]} ${
+                    ? // number split and spacing and hiding middle 8 digits----
+                      `${form.number.split(" ")[0]} ${
                         form.number.split(" ")[1] === "####" ? "####" : "****"
                       } ${
                         form.number.split(" ")[2] === "####" ? "####" : "****"
@@ -237,7 +246,6 @@ function App() {
                           : "####"
                       } `
                     : "####  ####  ####  ####"}
-                  {/* {form.number} */}
                 </h2>
               </div>
               <div className="three">
@@ -260,6 +268,7 @@ function App() {
             </div>
           </div>
         ) : (
+          // Card back side----
           <Flip left>
             <div className="credit-card back">
               <div className="one"></div>
@@ -270,7 +279,6 @@ function App() {
 
               <div className="three">
                 <img alt="card" src={require(`./assets/${form.card}.jpg`)} />
-                {/* <h3>{form.card}</h3> */}
               </div>
             </div>
           </Flip>
