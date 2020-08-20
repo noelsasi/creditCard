@@ -1,0 +1,249 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 16px;
+  background: #d6eaf8;
+  font-family: "Nunito", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.App {
+  max-width: 40%;
+  margin: 0 auto;
+  margin-top: 8rem;
+  background-color: white;
+  -webkit-box-shadow: 2px 7px 33px -4px #adadad;
+          box-shadow: 2px 7px 33px -4px #adadad;
+  border-radius: 12px;
+}
+
+.App .card {
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.App .card form {
+  margin-top: 8rem;
+}
+
+.App .card form label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.App .card form input,
+.App .card form select {
+  padding: 8px;
+  height: 35px;
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 1.2px solid #aed6f1;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+.App .card form input:focus,
+.App .card form select:focus {
+  outline: none !important;
+  border: 1px solid #3498db;
+}
+
+.App .card form .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .card form .row .month-selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App .card form .row .month-selection .month {
+  margin-right: 1rem;
+  width: 100px;
+}
+
+.App .card form .row .cvv {
+  max-width: 120px;
+}
+
+.App .card form .btn {
+  margin-top: 1rem;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4169e1;
+  outline: none;
+  border: none;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  -webkit-box-shadow: 2px 5px 15px 1px #adadad;
+          box-shadow: 2px 5px 15px 1px #adadad;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.App .card .credit-card {
+  position: absolute;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("./assets/card.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: -100px;
+  border-radius: 15px;
+  -webkit-box-shadow: 4px 20px 40px -6px #545454;
+          box-shadow: 4px 20px 40px -6px #545454;
+  padding: 1rem;
+  color: white;
+}
+
+.App .card .credit-card label {
+  font-size: 12px;
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+.App .card .credit-card .one {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .card .credit-card .one img {
+  height: 50px;
+}
+
+.App .card .credit-card .one h3 {
+  text-transform: uppercase;
+}
+
+.App .card .credit-card .two {
+  margin: 1rem 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.App .card .credit-card .two h2 {
+  border: 2px solid transparent;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  letter-spacing: 5px;
+}
+
+.App .card .credit-card .three {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .card .credit-card .three .name {
+  border: 2px solid transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 60%;
+}
+
+.App .card .credit-card .three .name h4 {
+  text-transform: uppercase;
+}
+
+.App .card .credit-card .three .expire {
+  border: 2px solid transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.App .card .back .three {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.App .card .back .three img {
+  height: 40px;
+  text-align: right;
+}
+
+.App .card .back .one {
+  background-color: black;
+  height: 50px;
+  width: 100%;
+}
+
+.App .card .back .two {
+  text-align: right;
+}
+
+.App .card .back .two input {
+  padding: 8px;
+  height: 35px;
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 1.2px solid #aed6f1;
+  border-radius: 3px;
+  font-size: 15px;
+  text-align: right;
+}
+
+.App .card .back .two input:focus {
+  outline: none !important;
+  border: 1px solid #3498db;
+}
+
+.App .card .back h3 {
+  text-align: right;
+}
+
+.activeBorder {
+  border: 2px solid #ddd !important;
+}
+
+.cName {
+  text-transform: uppercase;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,223 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  background: #d6eaf8;
+  font-family: "Nunito", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.App {
+  max-width: 40%;
+  margin: 0 auto;
+  margin-top: 8rem;
+  background-color: white;
+  box-shadow: 2px 7px 33px -4px rgba(173, 173, 173, 1);
+  border-radius: 12px;
+
+  .card {
+    padding: 3rem 2rem;
+    position: relative;
+
+    form {
+      margin-top: 8rem;
+      label {
+        display: block;
+        margin-bottom: 3px;
+
+        font-weight: 500;
+      }
+
+      input,
+      select {
+        padding: 8px;
+        height: 35px;
+        width: 100%;
+        margin-bottom: 1rem;
+        border: 1.2px solid #aed6f1;
+        border-radius: 3px;
+        font-size: 15px;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none !important;
+        border: 1px solid #3498db;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+
+        .month-selection {
+          display: flex;
+          .month {
+            margin-right: 1rem;
+            width: 100px;
+          }
+        }
+
+        .cvv {
+          max-width: 120px;
+        }
+      }
+
+      .btn {
+        margin-top: 1rem;
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4169e1;
+        outline: none;
+        border: none;
+        color: white;
+        font-family: "Nunito", sans-serif;
+        font-weight: 500;
+        font-size: 17px;
+        box-shadow: 2px 5px 15px 1px rgba(173, 173, 173, 1);
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    }
+
+    .credit-card {
+      position: absolute;
+      width: 80%;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      background-image: url("./assets/card.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      top: -100px;
+      border-radius: 15px;
+      box-shadow: 4px 20px 40px -6px rgba(84, 84, 84, 1);
+      padding: 1rem;
+      color: white;
+
+      label {
+        font-size: 12px;
+        font-weight: 500;
+        color: whitesmoke;
+      }
+
+      .one {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+          height: 50px;
+        }
+
+        h3 {
+          text-transform: uppercase;
+        }
+      }
+
+      .two {
+        margin: 1rem 0.5rem;
+        margin-bottom: 2rem;
+        h2 {
+          border: 2px solid transparent;
+          width: 100%;
+          padding: 5px 10px;
+          border-radius: 5px;
+          letter-spacing: 5px;
+        }
+      }
+
+      .three {
+        display: flex;
+        justify-content: space-between;
+
+        .name {
+          border: 2px solid transparent;
+          padding: 5px 10px;
+          border-radius: 5px;
+          width: 60%;
+
+          h4 {
+            text-transform: uppercase;
+          }
+        }
+
+        .expire {
+          border: 2px solid transparent;
+          padding: 5px 10px;
+          border-radius: 5px;
+        }
+      }
+    }
+
+    .back {
+      .three {
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+          height: 40px;
+          text-align: right;
+        }
+      }
+
+      .one {
+        background-color: black;
+        height: 50px;
+        width: 100%;
+      }
+
+      .two {
+        text-align: right;
+
+        input {
+          padding: 8px;
+          height: 35px;
+          width: 100%;
+          margin-bottom: 1rem;
+          border: 1.2px solid #aed6f1;
+          border-radius: 3px;
+          font-size: 15px;
+          text-align: right;
+        }
+
+        input:focus {
+          outline: none !important;
+          border: 1px solid #3498db;
+        }
+      }
+
+      h3 {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.activeBorder {
+  border: 2px solid #ddd !important;
+}
+
+.cName {
+  text-transform: uppercase;
+}
