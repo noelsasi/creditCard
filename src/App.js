@@ -92,6 +92,7 @@ function App() {
           <label>Card Number</label>
           <input
             type="text"
+            maxlength="16"
             onChange={(e) => {
               setFocus({
                 name: false,
