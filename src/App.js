@@ -4,6 +4,8 @@ import Chip from "./assets/chip.webp";
 
 import Flip from "react-reveal/Flip";
 
+import MaskInput from "react-maskinput";
+
 function App() {
   const [state, setState] = useState({
     months: [],
@@ -11,9 +13,9 @@ function App() {
   });
 
   const [form, setForm] = useState({
-    number: "",
+    number: "#### #### #### ####",
     name: "",
-    card: "visa",
+    card: "amex",
     year: "",
     month: "",
     cvv: "",
@@ -25,6 +27,8 @@ function App() {
     expiry: false,
     cvv: false,
   });
+
+  const [mask] = React.useState("0000 0000 0000 0000");
 
   //on Component Loads---
   useEffect(() => {
@@ -51,6 +55,8 @@ function App() {
 
   //openSource function to identify card type--
   const detectCardType = (number) => {
+    const num = number.split(/\s/).join("");
+    console.log(num);
     var re = {
       electron: /^(4026|417500|4405|4508|4844|4913|4917)\d+$/,
       maestro: /^(5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d+$/,
@@ -66,23 +72,13 @@ function App() {
     };
 
     for (var key in re) {
-      if (re[key].test(number)) {
-        setForm({ ...form, card: key });
+      if (re[key].test(num)) {
+        setTimeout(() => {
+          setForm({ ...form, card: key });
+        }, 50);
         return key;
       }
     }
-  };
-
-  const addGaps = (str, gapNo) => {
-    let newStr = " ";
-    let len = str.length;
-    for (let i = 0; i < len; i++) {
-      newStr = newStr + str[i];
-      while (newStr.length % (gapNo + 1) === 0) {
-        newStr = newStr + " ";
-      }
-    }
-    return newStr.trim("   ");
   };
 
   return (
@@ -90,21 +86,23 @@ function App() {
       <div className="card">
         <form>
           <label>Card Number</label>
-          <input
-            type="text"
-            maxlength="16"
+
+          <MaskInput
             onChange={(e) => {
+              detectCardType(e.target.value);
+
               setFocus({
                 name: false,
                 number: true,
                 expiry: false,
                 cvv: false,
               });
-              if (e.target.value.length <= 16) {
-                setForm({ ...form, number: e.target.value });
-              }
-              detectCardType(e.target.value);
+              setForm({ ...form, number: e.target.value });
             }}
+            maskChar="#"
+            mask={mask}
+            alwaysShowMask
+            size={20}
             onMouseEnter={() =>
               setFocus({
                 name: false,
@@ -229,8 +227,17 @@ function App() {
               <div className="two">
                 <h2 className={`${focus.number ? "activeBorder" : null}`}>
                   {form.number
-                    ? addGaps(form.number, 4)
+                    ? `${form.number.split(" ")[0]} ${
+                        form.number.split(" ")[1] === "####" ? "####" : "****"
+                      } ${
+                        form.number.split(" ")[2] === "####" ? "####" : "****"
+                      } ${
+                        form.number.split(" ")[3]
+                          ? form.number.split(" ")[3]
+                          : "####"
+                      } `
                     : "####  ####  ####  ####"}
+                  {/* {form.number} */}
                 </h2>
               </div>
               <div className="three">
@@ -263,6 +270,7 @@ function App() {
 
               <div className="three">
                 <img alt="card" src={require(`./assets/${form.card}.jpg`)} />
+                {/* <h3>{form.card}</h3> */}
               </div>
             </div>
           </Flip>
